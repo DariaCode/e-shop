@@ -3,7 +3,7 @@
 This project was generated with [Angular CLI](https://github.com/angular/angular-cli) version 9.1.9.
 
 ## Add Firebase config to environments variable
-Open /src/environments/environment.ts and add your Firebase configuration. You can find your project configuration in the Firebase Console. Click the Gear icon next to Project Overview, then click Project Settings and under "Firebase SDK snippet" click Config.
+Open /src/environments/environment.ts_, premove "_" in the name of file and add your Firebase configuration. You can find your project configuration in the Firebase Console. Click the Gear icon next to Project Overview, then click Project Settings and under "Firebase SDK snippet" click Config.
 
 ```bash
 export const environment = {
