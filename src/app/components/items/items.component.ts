@@ -1,4 +1,5 @@
 import { Component, OnInit } from '@angular/core';
+import { FirebaseService } from '../../services/firebase.service';
 
 @Component({
   selector: 'app-items',
@@ -6,10 +7,15 @@ import { Component, OnInit } from '@angular/core';
   styleUrls: ['./items.component.scss']
 })
 export class ItemsComponent implements OnInit {
+  items:any;
 
-  constructor() { }
+  constructor(private firebaseService:FirebaseService) { }
 
   ngOnInit(): void {
+    this.firebaseService.getItems().subscribe(items => {
+      console.log("ITEMS ",items);
+      this.items = items;
+    })
   }
 
 }

@@ -1,7 +1,10 @@
 import { BrowserModule } from '@angular/platform-browser';
 import { NgModule } from '@angular/core';
 import { AngularFireModule } from '@angular/fire';
+import { AngularFireAuthModule } from '@angular/fire/auth';
+import { FlashMessagesModule } from 'angular2-flash-messages';
 import { environment } from '../environments/environment';
+import { FirebaseService } from './services/firebase.service';
 
 import { AppRoutingModule } from './app-routing.module';
 import { AppComponent } from './app.component';
@@ -25,9 +28,11 @@ import { EditItemComponent } from './components/edit-item/edit-item.component';
   imports: [
     BrowserModule,
     AngularFireModule.initializeApp(environment.firebase),
+    AngularFireAuthModule,
+    FlashMessagesModule.forRoot(),
     AppRoutingModule
   ],
-  providers: [],
+  providers: [FirebaseService],
   bootstrap: [AppComponent]
 })
 export class AppModule { }
