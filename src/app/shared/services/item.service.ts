@@ -18,7 +18,7 @@ export class ItemService {
 
   // Methods:
   getAll() { // TODO find a source with explanation
-    console.log(  this.firebase.list('/items').snapshotChanges())
+    console.log( "ItemSrvices.getAll: ", this.firebase.list('/items').snapshotChanges())
     return this.firebase.list('/items').snapshotChanges()
     .pipe(map(action => action
       .map(a => {
