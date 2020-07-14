@@ -8,13 +8,18 @@ import { ShoppingCartService } from './services/shopping-cart.service';
 
 
 @NgModule({
-  declarations: [ItemCardComponent],
+  declarations: [
+    ItemCardComponent
+  ],
   imports: [
     CommonModule
   ],
   providers: [
     ItemService,
     ShoppingCartService
+  ],
+  exports: [
+    ItemCardComponent,
   ]
 })
 export class SharedModule { }

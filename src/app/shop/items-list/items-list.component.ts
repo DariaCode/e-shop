@@ -1,4 +1,5 @@
 import { Component, OnInit, OnDestroy } from '@angular/core';
+import { ActivatedRoute } from '@angular/router';
 // https://rxjs-dev.firebaseapp.com/guide/subscription
 import { Subscription } from 'rxjs';
 import { switchMap } from 'rxjs/operators';
@@ -24,7 +25,7 @@ export class ItemsListComponent implements OnInit, OnDestroy {
   subscription: Subscription;
 
   constructor(
-    //private route: ActivatedRoute,
+    private route: ActivatedRoute,
     private itemService: ItemService,
     private shoppingCartService: ShoppingCartService
   ) { }
@@ -41,11 +42,23 @@ export class ItemsListComponent implements OnInit, OnDestroy {
       .pipe(switchMap(items => {
         let temp: any[];
         temp = items;
-        this.items =
+        this.items = temp;
+        // queryParamMap - An Observable that contains a map of the 
+        // query parameters available to all routes. The map supports retrieving 
+        // single and multiple values from the query parameter.
+        return this.route.queryParamMap;
       }))
+      .subscribe(params => {
+        this.category = params.get('category');
+
+        this.filteredItems = (this.category) ? 
+          this.items.filter(i => i.category === this.category) :
+          this.items;
+      });
+      console.log("items-list: ", this.items, this.category, this.filteredItems)
   }
 
   ngOnDestroy() {
-
+    this.subscription.unsubscribe();
   }
 }

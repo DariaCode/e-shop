@@ -1,4 +1,5 @@
 import { BrowserModule } from '@angular/platform-browser';
+import { RouterModule } from '@angular/router';
 import { NgModule } from '@angular/core';
 import { AngularFireModule } from '@angular/fire';
 import { AngularFireAuthModule } from '@angular/fire/auth';
@@ -6,6 +7,7 @@ import { environment } from '../environments/environment';
 
 import { AppRoutingModule } from './app-routing.module';
 import { AppComponent } from './app.component';
+import { ItemsListComponent } from './shop/items-list/items-list.component';
 // https://ng-bootstrap.github.io/#/home
 import { NgbModule } from '@ng-bootstrap/ng-bootstrap'
 // My modules:
@@ -26,7 +28,10 @@ import { ShopModule } from './shop/shop.module';
     NgbModule,
     CoreModule,
     SharedModule,
-    ShopModule
+    ShopModule,
+    RouterModule.forRoot([
+      { path: '', component: ItemsListComponent }
+    ])
   ],
   providers: [],
   bootstrap: [AppComponent]
