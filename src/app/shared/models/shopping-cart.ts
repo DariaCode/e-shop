@@ -30,5 +30,5 @@ export class ShoppingCart {
     }
     return total;
   }
-  
+
 }

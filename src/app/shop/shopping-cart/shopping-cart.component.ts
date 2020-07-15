@@ -19,6 +19,12 @@ export class ShoppingCartComponent implements OnInit {
   async ngOnInit() {
     const cart$ = await this.shoppingCartService.getCart();
     console.log("shopping cart component getCart: ", cart$);
+    cart$.subscribe( temp => {
+      let data: any;    
+      // data = temp.payload.child('/items').val();
+      this.cart = new ShoppingCart(data);
+      this.cartCounter = this.cart.totalItemsCount;
+    });
   }
 
   clearCart() {
