@@ -1,0 +1,43 @@
+<h1>Shopping Cart</h1>
+<div class="row col-10">
+  <p>
+    You have ___ items in your shopping cart.
+    <button
+      class="btn btn-light btn-sm"
+      (click)="clearCart()"
+    >Clear Shopping Cart</button>
+  </p>
+
+  <table class="table">
+    <thead>
+      <tr>
+        <th></th>
+        <th>Product</th>
+        <th>Quantity</th>
+        <th>Price</th>
+      </tr>
+    </thead>
+
+    <tbody>
+      <tr>
+        <th>Image</th>
+        <th>title of item</th>
+        <th>
+          <app-item-quantity></app-item-quantity>
+        </th>
+        <th>total price of items</th>
+      </tr>
+    </tbody>
+
+    <tfoot>
+      <tr>
+        <th></th>
+        <th></th>
+        <th></th>
+        <th>Total Price</th>        
+      </tr>
+    </tfoot>
+
+  </table>
+
+</div>

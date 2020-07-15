@@ -51,7 +51,7 @@ export class ShoppingCartService {
   private async updateItem(item: Item, change: number) {
     const cartId = await this.getOrCreateCartId();
     const cartItem = this.getItem(cartId, item.key);
-
+    console.log("shopping cart service, updateItem - cartItem: ", cartItem)
     cartItem
     .valueChanges()
     .pipe(take(1)) // TODO find what it means!

@@ -8,15 +8,15 @@ import { from } from 'rxjs';
   styleUrls: ['./items-filter.component.scss']
 })
 export class ItemsFilterComponent implements OnInit {
-  categories$; 
+  categoriesFilter; 
   // Decorator that marks a class field as an input property 
   // and supplies configuration metadata.
   // https://angular.io/api/core/Input 
-  @Input('filteredCategory') filteredCategory;
+  @Input('selectedCategory') selectedCategory;
   
   constructor(private filterService: FilterService) { 
-    this.categories$ = this.filterService.getAll()
-    .subscribe(category => { this.categories$ = category});
+    this.categoriesFilter = this.filterService.getAll()
+    .subscribe(category => { this.categoriesFilter = category});
   }
 
   ngOnInit(): void {

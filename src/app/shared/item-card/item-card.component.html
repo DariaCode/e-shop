@@ -9,9 +9,9 @@
       <button 
         *ngIf="getQuantity() === 0; else updateQuantity"
         (click)="addToCart()" 
-        class="btn btn-secondary btn-block">Add to Cart</button>
+        class="btn btn-primary btn-block">Add to Cart</button>
       <ng-template #updateQuantity>
-        <button>Quantity</button> TODO change to item-quantity component
+        <app-item-quantity [item]="item" [shopping-cart]="shoppingCart"></app-item-quantity> 
       </ng-template>  
     </div>      
 </div>
