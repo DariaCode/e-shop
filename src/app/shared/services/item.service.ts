@@ -18,12 +18,12 @@ export class ItemService {
 
   // Methods:
   getAll() { // TODO find a source with explanation
-    console.log( "ItemSrvices.getAll: ", this.firebase.list('/items').snapshotChanges())
-    return this.firebase.list('/items').snapshotChanges()
+    return this.firebase.list('items').snapshotChanges()
     .pipe(map(action => action
       .map(a => {
         const id = a.payload.key;
         const data = a.payload.val();
+        console.log("ItemSrvices.getAll: id and data ", id, data);
         return data;
       })));
   }

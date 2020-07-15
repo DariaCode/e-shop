@@ -5,6 +5,7 @@ import { ItemCardComponent } from './item-card/item-card.component';
 // My services:
 import { ItemService } from './services/item.service';
 import { ShoppingCartService } from './services/shopping-cart.service';
+import { FilterService } from './services/filter.service';
 
 
 @NgModule({
@@ -16,7 +17,8 @@ import { ShoppingCartService } from './services/shopping-cart.service';
   ],
   providers: [
     ItemService,
-    ShoppingCartService
+    ShoppingCartService,
+    FilterService
   ],
   exports: [
     ItemCardComponent,
