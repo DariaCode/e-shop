@@ -2,6 +2,7 @@ import { Injectable } from '@angular/core';
 import { AngularFireDatabase } from '@angular/fire/database';
 // hhttps://rxjs-dev.firebaseapp.com/api/operators/map
 import { map } from 'rxjs/operators';
+import { Item } from '../models/item';
 
 // To define a class as a service in Angular, use the @Injectable() decorator 
 // to provide the metadata that allows Angular to inject it into
@@ -22,9 +23,14 @@ export class ItemService {
     .pipe(map(action => action
       .map(a => {
         const id = a.payload.key;
-        const data = a.payload.val();
-        console.log("ItemSrvices.getAll: id and data ", id, data);
-        return data;
+        const data = a.payload.val() as Item;
+        const itemObj = { 
+          key: id,
+          ...data 
+         };
+        console.log("ItemSrvices.getAll: id and data ", id, data, itemObj);
+        // return data;
+        return  itemObj as Item;
       })));
   }
 

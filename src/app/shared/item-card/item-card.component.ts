@@ -23,10 +23,10 @@ export class ItemCardComponent {
   constructor(private shoppingCartService: ShoppingCartService) { }
 
   addToCart() {
-    console.log("item-card.component addToCard() item: ", this.item);
+    console.log("item-card.component addToCard() item: ", this.item, this.item.key);
     this.shoppingCartService.addToCart(this.item);
   }
-
+ // TODO check if need it here
   getQuantity() {
     if (!this.shoppingCart) { return 0; }
     const cartItem = this.shoppingCart.itemsMap[this.item.key];

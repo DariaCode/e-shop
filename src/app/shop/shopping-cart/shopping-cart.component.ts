@@ -31,4 +31,11 @@ export class ShoppingCartComponent implements OnInit {
     this.shoppingCartService.clearCart();
   }
  
+  getQuantity(item: Item) {
+    if(!this.cart) {return 0;}
+
+    const itemQ = this.cart.itemsMap[item.key];
+    return itemQ ? itemQ.quantity: 0;
+  }
+  
 }

@@ -55,7 +55,6 @@ export class ItemsListComponent implements OnInit, OnDestroy {
           this.items.filter(i => i.category === this.category) :
           this.items;
       });
-      console.log("items-list: ", this.items, this.category, this.filteredItems)
   }
 
   ngOnDestroy() {

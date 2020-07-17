@@ -1,4 +1,5 @@
 import { ShoppingCartItem } from './shopping-cart-item';
+import { Item } from './item';
 
 export class ShoppingCart {
   // https://www.typescriptlang.org/docs/handbook/classes.html
@@ -29,6 +30,12 @@ export class ShoppingCart {
       total += this.itemsMap[itemId].quantity;
     }
     return total;
+  }
+
+  getQuantity(item: Item) {
+    let itemQ = this.itemsMap[item.key];
+    console.log("shopping-cart.ts getQty: ", this.itemsMap[item.key], itemQ)
+    return itemQ ? itemQ.quantity : 0; 
   }
 
 }

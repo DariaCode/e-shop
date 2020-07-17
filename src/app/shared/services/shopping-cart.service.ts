@@ -20,8 +20,12 @@ export class ShoppingCartService {
   async getCart(): Promise<Observable<ShoppingCart>> {
     const cartId = await this.getOrCreateCartId();
     // TODO check the source! object, exportVal, payload
+    console.log( "Shopping cart service: ", this.firebase.object('/shopping-carts/' + cartId)
+    .snapshotChanges()
+    .pipe(map(x => new ShoppingCart(x.payload.exportVal().items))))
     return this.firebase.object('/shopping-carts/' + cartId).snapshotChanges()
     .pipe(map(x => new ShoppingCart(x.payload.exportVal().items)));
+  
   }
   // Function for getCart(), updateItem(), clearCart().
   private async getOrCreateCartId() {
@@ -51,7 +55,7 @@ export class ShoppingCartService {
   private async updateItem(item: Item, change: number) {
     const cartId = await this.getOrCreateCartId();
     const cartItem = this.getItem(cartId, item.key);
-    console.log("shopping cart service, updateItem - cartItem: ", cartItem)
+    console.log("shopping cart service, updateItem - cartItem: ", cartId, item, change);
     cartItem
     .valueChanges()
     .pipe(take(1)) // TODO find what it means!
@@ -73,6 +77,7 @@ export class ShoppingCartService {
   }
   // Function for updateItem().
   private getItem(cartId: string, itemId: string) {
+
     return this.firebase.object('/shopping-carts/' + cartId + '/items/' + itemId);
   }
 
