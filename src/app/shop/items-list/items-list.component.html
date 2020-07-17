@@ -6,9 +6,8 @@
     <div class="row">
       <ng-container *ngFor="let item of filteredItems; let i = index">
         <div class="col">
-         <app-item-card [item]="item"></app-item-card> 
+         <app-item-card [item]="item" [shopping-cart]="cart"></app-item-card> 
           <p>index: {{i}}</p>
-          <p>key: {{item.id}}</p>
         </div>
       </ng-container>
     </div>

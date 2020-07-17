@@ -4,6 +4,7 @@
     <div class="item-card-body">
       <h5 class="item-card-title">{{ item.title }}</h5>
       <p class="item-card-price"> {{ item.price | currency:'USD' }}</p>
+      <p class="item-card-price"> {{ item.key }}</p>
     </div>
     <div *ngIf="showActions" class="card-footer">
       <button 

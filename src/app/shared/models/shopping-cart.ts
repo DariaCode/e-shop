@@ -11,7 +11,10 @@ export class ShoppingCart {
 
     for (let itemId in itemsMap) {
       let cartItem = itemsMap[itemId];
-      this.items.push(new ShoppingCartItem(cartItem.item, cartItem.quantity));
+      console.log("shopping-cart model: ", itemId, cartItem)
+      // this.items.push(new ShoppingCartItem(cartItem.item, cartItem.quantity));
+      this.items.push(cartItem);
+      console.log("shopping-cart model: ", this.items);
     }
   }
   // Methods:

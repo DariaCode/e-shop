@@ -1,6 +1,6 @@
 import { Injectable } from '@angular/core';
 import { AngularFireDatabase } from '@angular/fire/database';
-// hhttps://rxjs-dev.firebaseapp.com/api/operators/map
+// https://rxjs-dev.firebaseapp.com/api/operators/map
 import { map } from 'rxjs/operators';
 import { Item } from '../models/item';
 
@@ -21,17 +21,8 @@ export class ItemService {
   getAll() { // TODO find a source with explanation
     return this.firebase.list('items').snapshotChanges()
     .pipe(map(action => action
-      .map(a => {
-        const id = a.payload.key;
-        const data = a.payload.val() as Item;
-        const itemObj = { 
-          key: id,
-          ...data 
-         };
-        console.log("ItemSrvices.getAll: id and data ", id, data, itemObj);
-        // return data;
-        return  itemObj as Item;
-      })));
+      .map(a => ({key: a.payload.key, ...a.payload.val() as Item })
+      )));
   }
 
   create(item) {

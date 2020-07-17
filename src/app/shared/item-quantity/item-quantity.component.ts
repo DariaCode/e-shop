@@ -16,7 +16,7 @@ export class ItemQuantityComponent {
   constructor(private cartService: ShoppingCartService) { }
 
   addToCart() {
-    console.log("itemQuantity component - shopping cart: ", this.shoppingCart)
+    console.log("itemQuantity component: ",this.item, this.shoppingCart)
     this.cartService.addToCart(this.item);
   }
 
@@ -28,6 +28,7 @@ export class ItemQuantityComponent {
     if (!this.shoppingCart) { return 0; }
 
     const itemQ = this.shoppingCart.itemsMap[this.item.key];
+    console.log("item-qty.component: getQty ", itemQ);
     return itemQ ? itemQ.quantity : 0;
  }
 }
