@@ -22,6 +22,7 @@ export class ItemCardComponent {
 
   constructor(private shoppingCartService: ShoppingCartService) { }
 
+
   addToCart() {
     console.log("item-card.component addToCard(): ", this.item, this.showActions, this.shoppingCart);
     this.shoppingCartService.addToCart(this.item);
@@ -30,7 +31,6 @@ export class ItemCardComponent {
   getQuantity() {
     if (!this.shoppingCart) { return 0; }
     const cartItem = this.shoppingCart.itemsMap[this.item.key];
-    console.log("item-cart.component getQty: ", cartItem, this.shoppingCart, this.item);
     return cartItem ? cartItem.quantity : 0;
   }
 
