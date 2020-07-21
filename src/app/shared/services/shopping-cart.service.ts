@@ -26,7 +26,7 @@ export class ShoppingCartService {
     */
     return this.firebase.object('/shopping-carts/' + cartId).snapshotChanges()
     .pipe(map(cart => {
-      console.log("shopping-cart.service: ",cart.payload.exportVal().items);
+      console.log("shopping-cart.service: ", new ShoppingCart(cart.payload.exportVal().items));
       return new ShoppingCart(cart.payload.exportVal().items)
     }));
   }

@@ -1,11 +1,13 @@
 <h1>Shopping Cart</h1>
-<div class="row col-10">
+<div class="row col-10"
+*ngIf = "cart.items.length > 0; else noItems">
   <p>
-    You have ___ items in your shopping cart.
+    You have {{ cartCounter }} items in your shopping cart.
     <button
-      class="btn btn-light btn-sm"
+      *ngIf = "cart.items.length"
+      class="btn btn-light btn-sm float-right"
       (click)="clearCart()"
-    >Clear Shopping Cart</button>
+    > Clear Shopping Cart </button>
   </p>
 
   <table class="table">
@@ -14,18 +16,20 @@
         <th></th>
         <th>Product</th>
         <th class="text-center" style="width: 230px">Quantity</th>
-        <th class="text-right" style="width: 200px">Price</th>
+        <th class="text-center" style="width: 200px">Price</th>
       </tr>
     </thead>
 
     <tbody>
-      <tr>
-        <th>Image</th>
-        <th>{{cart.items}}</th>
+      <tr *ngFor="let item of cart.items" >
         <th>
-          <app-item-quantity></app-item-quantity>
+          <div class="thumbnail" [style.backgroundImage]="'url('+ item.imageUrl +')'"></div>
         </th>
-        <th>total price of items</th>
+        <th>{{ item.title }}</th>
+        <th>
+          <app-item-quantity [item]="item" [shopping-cart]="cart"></app-item-quantity>
+        </th>
+        <th class="text-center"> {{ itemTotalPrice(item) | currency:'CAD' }} </th>
       </tr>
     </tbody>
 
@@ -34,10 +38,14 @@
         <th></th>
         <th></th>
         <th></th>
-        <th>Total Price</th>        
+        <th class="text-center"> {{ cartTotalPrice(cart) | currency:'CAD' }}</th>        
       </tr>
     </tfoot>
 
   </table>
 
 </div>
+
+<ng-template #noItems>
+    <p>You don't have any item in your cart</p>
+</ng-template>

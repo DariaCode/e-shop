@@ -1,6 +1,7 @@
 import { Component, OnInit } from '@angular/core';
 import { Item } from '../../shared/models/item';
 import { ShoppingCart } from '../../shared/models/shopping-cart';
+import { ShoppingCartItem } from '../../shared/models/shopping-cart-item';
 import { ShoppingCartService } from '../../shared/services/shopping-cart.service';
 
 @Component({
@@ -10,21 +11,31 @@ import { ShoppingCartService } from '../../shared/services/shopping-cart.service
 })
 export class ShoppingCartComponent implements OnInit {
   // Properties:
-  cart: ShoppingCart = new ShoppingCart(null);
-  shoppingCart: ShoppingCart;
+  cart: ShoppingCart;
+  // shoppingCart: ShoppingCart; 
   cartCounter: number;
 
   constructor(private shoppingCartService: ShoppingCartService) { }
 
   async ngOnInit() {
-    const cart$ = await this.shoppingCartService.getCart();
-    console.log("shopping cart component getCart: ", cart$);
-    cart$.subscribe( temp => {
-      let data: any;    
-      // data = temp.payload.child('/items').val();
-      this.cart = new ShoppingCart(data);
+    const cartItems = await this.shoppingCartService.getCart();
+    cartItems.subscribe( data => {
+      this.cart = data;
       this.cartCounter = this.cart.totalItemsCount;
+      console.log("shopping cart component: ", this.cart, data);
     });
+  }
+
+  itemTotalPrice(item: any): number {
+    return item.price*item.quantity ;
+  }
+
+  cartTotalPrice(cart: ShoppingCart): number {
+    let total = 0;
+    for ( let itemId in cart.items) {
+      total += this.itemTotalPrice(cart.items[itemId]);
+    }
+    return total;
   }
 
   clearCart() {
@@ -33,7 +44,6 @@ export class ShoppingCartComponent implements OnInit {
  
   getQuantity(item: Item) {
     if(!this.cart) {return 0;}
-
     const itemQ = this.cart.itemsMap[item.key];
     return itemQ ? itemQ.quantity: 0;
   }
