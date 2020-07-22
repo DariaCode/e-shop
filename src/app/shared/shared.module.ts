@@ -7,8 +7,7 @@ import { ItemQuantityComponent } from './item-quantity/item-quantity.component';
 import { ItemService } from './services/item.service';
 import { ShoppingCartService } from './services/shopping-cart.service';
 import { FilterService } from './services/filter.service';
-
-
+import { UserService } from './services/user.service';
 
 @NgModule({
   declarations: [
@@ -21,7 +20,8 @@ import { FilterService } from './services/filter.service';
   providers: [
     ItemService,
     ShoppingCartService,
-    FilterService
+    FilterService,
+    UserService
   ],
   exports: [
     ItemCardComponent,
