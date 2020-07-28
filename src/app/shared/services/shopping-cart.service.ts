@@ -59,19 +59,20 @@ export class ShoppingCartService {
     const cartId = await this.getOrCreateCartId();
     const cartItem = this.getItem(cartId, item.key);
     console.log("shopping cart service, updateItem: ", cartId, item, change);
-
-    cartItem.snapshotChanges().pipe(take(1))
-    .subscribe(data => {
-      const quantity = (data.payload.child('/quantity').val() || 0) + change;
+// TODO snapshotChanges() vs valueChanges()
+    cartItem.valueChanges().pipe(take(1))
+    .subscribe((data: ShoppingCartItem) => {
+      // const quantity = (data.payload.child('/quantity').val() || 0) + change;
+      const quantity = (data ? (data.quantity || 0) : 0) + change;
       console.log("shopping cart service: quantity: ", 
-      data.payload.child('/quantity').val(), "+", change, "=",
+      data.quantity, "+", change, "=",
       quantity)
 
       if (quantity === 0) {
         cartItem.remove();
       } else {
         cartItem.update({
-          key: item.key,
+          // key: item.key,
           title: item.title,
           price: item.price,
           imageUrl: item.imageUrl,

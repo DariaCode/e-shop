@@ -11,16 +11,23 @@ export class ShoppingCart {
 
     for (let itemId in itemsMap) {
       let cartItem = itemsMap[itemId];
-      console.log("shopping-cart model_1: ", cartItem)
-      // this.items.push(new ShoppingCartItem(cartItem.item, cartItem.quantity));
-      this.items.push(cartItem);
+      console.log("shopping-cart model_1: ", cartItem, cartItem.item);
+     /* let tempItem={
+        key: cartItem.key,
+        title: cartItem.title,
+        price: cartItem.price,
+        category: cartItem.category,
+        imageUrl: cartItem.imageUrl
+      } as Item; */
+      this.items.push(new ShoppingCartItem(cartItem.item, cartItem.quantity));
+      // this.items.push(cartItem);
       console.log("shopping-cart model_2: ", this.items, );
     }
   }
   // Methods:
   get totalPrice(): number {
     let total = 0;
-    for ( let itemId in this.items) { // TODO check items vs itemsMap
+    for ( let itemId in this.items) { 
       // totalPrice from ShoppingCartItem class (price * quantity).
       total += this.items[itemId].totalPrice;
     }
@@ -29,7 +36,7 @@ export class ShoppingCart {
 
   get totalItemsCount(): number {
     let total = 0;
-    for ( let itemId in this.itemsMap) { // TODO check items vs itemsMap
+    for ( let itemId in this.itemsMap) { 
       total += this.itemsMap[itemId].quantity;
     }
     return total;

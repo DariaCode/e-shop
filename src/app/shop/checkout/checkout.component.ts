@@ -15,10 +15,16 @@ export class CheckoutComponent implements OnInit, OnDestroy {
   cart;
   cartSubscription: Subscription;
 
-  constructor() { }
+  constructor(private shoppingCartService: ShoppingCartService) { }
 
-  ngOnInit() {
-    // TODO add!
+  async ngOnInit() {
+    const cart$ = await this.shoppingCartService.getCart();
+    this.cartSubscription = cart$.subscribe(cart => {
+      let temp= cart;
+      // temp = cart.payload.child('/items').val();
+      this.cart = cart;
+      console.log("checkout",this.cart);
+    })
   }
 
   ngOnDestroy(){

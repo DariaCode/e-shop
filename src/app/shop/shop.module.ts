@@ -7,9 +7,10 @@ import { SharedModule } from '../shared/shared.module';
 import { ItemsListComponent } from './items-list/items-list.component';
 import { ItemsFilterComponent } from './items-filter/items-filter.component';
 import { ShoppingCartComponent } from './shopping-cart/shopping-cart.component';
+import { CheckoutComponent } from './checkout/checkout.component';
 // My services: 
 import { AuthGuardService } from '../shared/services/auth-guard.service';
-import { CheckoutComponent } from './checkout/checkout.component';
+
 
 @NgModule({
   declarations: [
