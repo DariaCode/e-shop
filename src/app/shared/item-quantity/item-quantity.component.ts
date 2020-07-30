@@ -23,12 +23,11 @@ export class ItemQuantityComponent {
   removeFromCart() {
     this.cartService.removeFromCart(this.item);
   }
-  // TODO check if it needs
+  
   getQuantity() {
     if (!this.shoppingCart) { return 0; }
-
     const itemQ = this.shoppingCart.itemsMap[this.item.key];
-    console.log("item-qty.component: getQty ", itemQ);
     return itemQ ? itemQ.quantity : 0;
  }
+ 
 }

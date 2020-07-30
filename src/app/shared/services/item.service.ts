@@ -21,20 +21,24 @@ export class ItemService {
   getAll() { // TODO find a source with explanation
     return this.firebase.list('items').snapshotChanges()
     .pipe(map(action => action
-      .map(a => ({key: a.payload.key, ...a.payload.val() as Item })
+      .map(a => ({key: a.payload.key, ...(a.payload.val() as Item)})
       )));
   }
 
   create(item) {
-    return this.firebase.list('/products').push(item);
+    return this.firebase.list('/items').push(item);
   }
 
   get(itemId) {
-    return this.firebase.object('/products/' + itemId);
+    return this.firebase.object('/items/' + itemId);
   }
 
   update(itemId, item) {
-    return this.firebase.object('/products/' + itemId).update(item);
+    return this.firebase.object('/items/' + itemId).update(item);
+  }
+
+  delete(itemId) {
+    return this.firebase.object('/items/' + itemId).remove();
   }
 
 }

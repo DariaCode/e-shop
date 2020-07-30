@@ -34,18 +34,17 @@ export class ItemsListComponent implements OnInit, OnDestroy {
     this.subscription = (await this.shoppingCartService.getCart())
       .subscribe(cart => {
         // let temp: any;
-        this.cart = cart;// new ShoppingCart(temp);
-        console.log("items-list component_1: ", cart, this.cart);
+        this.cart = cart;// TODO check if need new ShoppingCart(temp);
+        console.log("items-list component cart: ", this.cart);
       });
 
-      console.log("items-list component_2: ", this.cart);
     // https://rxjs-dev.firebaseapp.com/api/operators/switchMap
     this.itemService.getAll()  
       .pipe(switchMap(items => {
-        let temp: any[];
-        temp = items;
+        // let temp: any[];
+        let temp: any[] = items;
+        console.log('temp', temp)
         this.items = temp;
-        console.log("items-list component_3: ", this.items);
         // queryParamMap - An Observable that contains a map of the 
         // query parameters available to all routes. The map supports retrieving 
         // single and multiple values from the query parameter.
@@ -53,7 +52,7 @@ export class ItemsListComponent implements OnInit, OnDestroy {
       }))
       .subscribe(params => {
         this.category = params.get('category');
-
+        console.log("items-list component items: ", this.items);
         this.filteredItems = (this.category) ? 
           this.items.filter(i => i.category === this.category) :
           this.items;

@@ -19,33 +19,16 @@ export class ShoppingCartComponent implements OnInit {
 
   async ngOnInit() {
     const cartItems = await this.shoppingCartService.getCart();
-    cartItems.subscribe( data => {
-      this.cart = data;
+    cartItems.subscribe( temp => {
+      let data: any = temp.items;
+      this.cart = temp;
       this.cartCounter = this.cart.totalItemsCount;
-      console.log("shopping cart component: ", this.cart, data);
+      console.log("shopping cart component: ", this.cart,this.cartCounter);
     });
-  }
-
-  itemTotalPrice(item: any): number {
-    return item.price*item.quantity ;
-  }
-
-  cartTotalPrice(cart: ShoppingCart): number {
-    let total = 0;
-    for ( let itemId in cart.items) {
-      total += this.itemTotalPrice(cart.items[itemId]);
-    }
-    return total;
   }
 
   clearCart() {
     this.shoppingCartService.clearCart();
-  }
- 
-  getQuantity(item: Item) {
-    if(!this.cart) {return 0;}
-    const itemQ = this.cart.itemsMap[item.key];
-    return itemQ ? itemQ.quantity: 0;
   }
   
 }

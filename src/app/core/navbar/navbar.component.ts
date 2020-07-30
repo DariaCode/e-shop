@@ -16,7 +16,8 @@ export class NavbarComponent implements OnInit {
   // Navbar that automatically collapses at the lg (large) breakpoint.
   public isCollapsed = true;
   appUser: AppUser;
-  shopCart: ShoppingCart; // TODO check it! Observable<ShoppingCart>;
+  shopCart$: Observable<ShoppingCart>;
+  shoppingCartItemCount: number;
 
   constructor(
     private auth: AuthService,
@@ -25,11 +26,12 @@ export class NavbarComponent implements OnInit {
   async ngOnInit() {
     this.auth.appUser$.subscribe(appUser => this.appUser = appUser); 
 
-    const cartItems = await this.shoppingCartService.getCart(); // TODO make it is observable
-    cartItems.subscribe( data => {
-      this.shopCart=data;
-    })
-    console.log('navbar ', this.appUser, this.shopCart)
+    this.shopCart$ = await this.shoppingCartService.getCart();
+    this.shopCart$.subscribe(temp => {
+      let data:any  = temp.items;
+      let cart = new ShoppingCart(data);
+      this.shoppingCartItemCount = cart.totalItemsCount;
+    });
   }
 
   logout() {

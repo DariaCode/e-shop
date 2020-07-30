@@ -35,6 +35,7 @@ export class AuthService {
    }
 
    login() {
+     // TODO reac about googleAuth
      let returnUrl = this.route.snapshot.queryParamMap.get('returnUrl') || '/';
      localStorage.setItem('returnUrl', returnUrl);
 

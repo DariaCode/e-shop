@@ -11,17 +11,8 @@ export class ShoppingCart {
 
     for (let itemId in itemsMap) {
       let cartItem = itemsMap[itemId];
-      console.log("shopping-cart model_1: ", cartItem, cartItem.item);
-     /* let tempItem={
-        key: cartItem.key,
-        title: cartItem.title,
-        price: cartItem.price,
-        category: cartItem.category,
-        imageUrl: cartItem.imageUrl
-      } as Item; */
       this.items.push(new ShoppingCartItem(cartItem.item, cartItem.quantity));
-      // this.items.push(cartItem);
-      console.log("shopping-cart model_2: ", this.items, );
+      console.log("shopping-cart-models items: ", this.items);
     }
   }
   // Methods:
@@ -41,11 +32,11 @@ export class ShoppingCart {
     }
     return total;
   }
-
+  /*
   getQuantity(item: Item) {
     let itemQ = this.itemsMap[item.key];
     // console.log("shopping-cart.ts getQty: ", this.itemsMap[item.key], itemQ)
     return itemQ ? itemQ.quantity : 0; 
   }
-
+  */
 }
