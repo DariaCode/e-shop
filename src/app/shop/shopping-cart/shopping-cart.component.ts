@@ -12,7 +12,6 @@ import { ShoppingCartService } from '../../shared/services/shopping-cart.service
 export class ShoppingCartComponent implements OnInit {
   // Properties:
   cart: ShoppingCart;
-  // shoppingCart: ShoppingCart; 
   cartCounter: number;
 
   constructor(private shoppingCartService: ShoppingCartService) { }
@@ -20,7 +19,7 @@ export class ShoppingCartComponent implements OnInit {
   async ngOnInit() {
     const cartItems = await this.shoppingCartService.getCart();
     cartItems.subscribe( temp => {
-      let data: any = temp.items;
+      // const data: any[] = temp.items;
       this.cart = temp;
       this.cartCounter = this.cart.totalItemsCount;
       console.log("shopping cart component: ", this.cart,this.cartCounter);

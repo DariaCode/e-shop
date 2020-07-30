@@ -10,6 +10,7 @@ import { FilterService } from './services/filter.service';
 import { UserService } from './services/user.service';
 import { AuthService } from './services/auth.service';
 import { AuthGuardService } from './services/auth-guard.service';
+import { OrderService } from './services/order.service';
 
 @NgModule({
   declarations: [
@@ -25,7 +26,8 @@ import { AuthGuardService } from './services/auth-guard.service';
     FilterService,
     UserService,
     AuthService,
-    AuthGuardService
+    AuthGuardService,
+    OrderService
   ],
   exports: [
     ItemCardComponent,

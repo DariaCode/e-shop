@@ -1,0 +1,11 @@
+<div class="card">
+  <div class="card-body">
+    <h4 class="card-title">Order Summary </h4>
+    <p class="card-text">You have {{ shoppingCart.totalItemsCount }} items in your shopping cart.</p>
+    <ul class="list-group list-group-flush">
+      <li *ngFor="let item of shoppingCart.items" class="list-group-item">
+
+      </li>
+    </ul>
+  </div>
+</div>

@@ -8,8 +8,11 @@ import { ItemsListComponent } from './items-list/items-list.component';
 import { ItemsFilterComponent } from './items-filter/items-filter.component';
 import { ShoppingCartComponent } from './shopping-cart/shopping-cart.component';
 import { CheckoutComponent } from './checkout/checkout.component';
+import { CheckoutFormComponent } from './checkout-form/checkout-form.component';
+import { CheckoutSummaryComponent } from './checkout-summary/checkout-summary.component';
 // My services: 
 import { AuthGuardService } from '../shared/services/auth-guard.service';
+
 
 
 @NgModule({
@@ -17,7 +20,9 @@ import { AuthGuardService } from '../shared/services/auth-guard.service';
     ItemsListComponent,
     ItemsFilterComponent,
     ShoppingCartComponent,
-    CheckoutComponent
+    CheckoutComponent,
+    CheckoutFormComponent,
+    CheckoutSummaryComponent
   ],
   imports: [
     CommonModule,
