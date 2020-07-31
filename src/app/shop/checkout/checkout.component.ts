@@ -13,20 +13,17 @@ import { ShoppingCartService } from '../../shared/services/shopping-cart.service
 })
 export class CheckoutComponent implements OnInit, OnDestroy {
 
-  cart$: Observable<ShoppingCart>;
+  cart;
   cartSubscription: Subscription;
 
   constructor(private shoppingCartService: ShoppingCartService) { }
 
   async ngOnInit() {
-    this.cart$ = await this.shoppingCartService.getCart();
-    console.log("checkout",this.cart$);
-    /*this.cartSubscription = cart$.subscribe(cart => {
-      // let temp= cart;
-      // temp = cart.payload.child('/items').val();
+    const cart$ = await this.shoppingCartService.getCart();
+    this.cartSubscription = cart$.subscribe(cart => {
       this.cart = cart;
       console.log("checkout",this.cart);
-    }) */
+    }) 
   }
 
   ngOnDestroy(){
