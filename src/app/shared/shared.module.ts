@@ -1,5 +1,6 @@
 import { NgModule } from '@angular/core';
 import { CommonModule } from '@angular/common';
+import { FormsModule } from '@angular/forms';
 // My components:
 import { ItemCardComponent } from './item-card/item-card.component';
 import { ItemQuantityComponent } from './item-quantity/item-quantity.component';
@@ -18,7 +19,8 @@ import { OrderService } from './services/order.service';
     ItemQuantityComponent
   ],
   imports: [
-    CommonModule
+    CommonModule, 
+    FormsModule
   ],
   providers: [
     ItemService,

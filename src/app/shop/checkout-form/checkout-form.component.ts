@@ -8,6 +8,15 @@ import { ShoppingCart } from '../../shared/models/shopping-cart';
 import { Order } from '../../shared/models/order';
 
 
+
+
+interface Shipping {
+  name: string;
+  address1: string;
+  address2: string;
+  city: string;
+}
+
 @Component({
   selector: 'app-checkout-form',
   templateUrl: './checkout-form.component.html',
@@ -16,7 +25,7 @@ import { Order } from '../../shared/models/order';
 export class CheckoutFormComponent implements OnInit, OnDestroy {
 
   @Input('shopping-cart') shoppingCart: ShoppingCart;
-  shipping = {};
+  shipping: Shipping = {} as Shipping;
   userSubscription: Subscription;
   userId;
 
@@ -30,7 +39,7 @@ export class CheckoutFormComponent implements OnInit, OnDestroy {
     let order = new Order(this.userId, this.shipping, this.shoppingCart);
     const result = await this.orderService.addOrder(order);
     console.log("checkout-form addOrder ", result.key, result)
-    // TODO this.router.navigate(['/order-success', result.key]);
+    this.router.navigate(['/check-out-success', result.key]);
   }
 
   ngOnInit() {
@@ -42,3 +51,4 @@ export class CheckoutFormComponent implements OnInit, OnDestroy {
   }
 
 }
+

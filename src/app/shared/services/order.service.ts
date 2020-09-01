@@ -14,7 +14,7 @@ export class OrderService {
 
   async addOrder(order) {
     const result = await this.firebase.list('/orders').push(order);
-    this.shopCartService.clearCart();
+    this.shopCartService.clearCart(); // TODO maybe should delete and create a new cart
     console.log("order.service addOrder: ", result);
     return result;
   }

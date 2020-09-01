@@ -21,7 +21,7 @@ export class Order {
             imageUrl: i.item.imageUrl
           },
           quantity: i.quantity,
-          totalPrice: i.totalPrice
+          totalPrice: i.totalPrice,
         };
       });
   }

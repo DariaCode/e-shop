@@ -1,6 +1,7 @@
 import { NgModule } from '@angular/core';
 import { CommonModule } from '@angular/common';
 import { RouterModule } from '@angular/router';
+import { FormsModule } from '@angular/forms';
 // My modules: 
 import { SharedModule } from '../shared/shared.module';
 // My components:
@@ -10,6 +11,7 @@ import { ShoppingCartComponent } from './shopping-cart/shopping-cart.component';
 import { CheckoutComponent } from './checkout/checkout.component';
 import { CheckoutFormComponent } from './checkout-form/checkout-form.component';
 import { CheckoutSummaryComponent } from './checkout-summary/checkout-summary.component';
+import { CheckoutSuccessComponent } from './checkout-success/checkout-success.component';
 // My services: 
 import { AuthGuardService } from '../shared/services/auth-guard.service';
 
@@ -22,7 +24,8 @@ import { AuthGuardService } from '../shared/services/auth-guard.service';
     ShoppingCartComponent,
     CheckoutComponent,
     CheckoutFormComponent,
-    CheckoutSummaryComponent
+    CheckoutSummaryComponent,
+    CheckoutSuccessComponent
   ],
   imports: [
     CommonModule,
@@ -30,8 +33,10 @@ import { AuthGuardService } from '../shared/services/auth-guard.service';
     RouterModule.forChild([
       { path: 'items', component: ItemsListComponent},
       { path: 'shopping-cart', component: ShoppingCartComponent},
-      { path: 'check-out', component: CheckoutComponent, canActivate: [AuthGuardService]}
-    ])
+      { path: 'check-out', component: CheckoutComponent, canActivate: [AuthGuardService]},
+      { path: 'check-out-success/:id', component: CheckoutSuccessComponent, canActivate: [AuthGuardService]}
+    ]),
+    FormsModule
   ]
 })
 export class ShopModule { }
