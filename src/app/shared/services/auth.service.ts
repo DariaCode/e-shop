@@ -29,13 +29,12 @@ export class AuthService {
    get appUser$(): Observable<AppUser> {
      return this.user$.pipe(switchMap(user => {
        if(user) return this.userService.get(user.uid).valueChanges();
-
        return of(null);
      }))
    }
 
    login() {
-     // TODO reac about googleAuth
+     // TODO read about googleAuth
      let returnUrl = this.route.snapshot.queryParamMap.get('returnUrl') || '/';
      localStorage.setItem('returnUrl', returnUrl);
 

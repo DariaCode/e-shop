@@ -8,17 +8,24 @@ import { ShoppingCartService } from './shopping-cart.service';
 export class OrderService {
 
   constructor(
-    private firebase: AngularFireDatabase,
+    private db: AngularFireDatabase,
     private shopCartService: ShoppingCartService
   ) { }
 
   async addOrder(order) {
-    const result = await this.firebase.list('/orders').push(order);
-    this.shopCartService.clearCart(); // TODO maybe should delete and create a new cart
+    const result = await this.db.list('/orders').push(order);
+    this.shopCartService.clearCart(); // TODO maybe should delete it and create a new cart
     console.log("order.service addOrder: ", result);
     return result;
   }
 
-  // TODO getOrder and getOrderByUser
+  getOrders() { 
+    return this.db.list('/orders').valueChanges();
+  }
+
+  getOrdersByUser(userId: string) {
+    return this.db.list('/orders', 
+    ref => ref.orderByChild('userId').equalTo(userId)).valueChanges();
+  }
 
 }

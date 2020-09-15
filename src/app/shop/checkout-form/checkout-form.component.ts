@@ -7,9 +7,6 @@ import { OrderService } from '../../shared/services/order.service';
 import { ShoppingCart } from '../../shared/models/shopping-cart';
 import { Order } from '../../shared/models/order';
 
-
-
-
 interface Shipping {
   name: string;
   address1: string;
