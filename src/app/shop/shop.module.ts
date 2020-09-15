@@ -16,9 +16,6 @@ import { CustomerOrdersComponent } from './customer-orders/customer-orders.compo
 // My services: 
 import { AuthGuardService } from '../shared/services/auth-guard.service';
 
-
-
-
 @NgModule({
   declarations: [
     ItemsListComponent,

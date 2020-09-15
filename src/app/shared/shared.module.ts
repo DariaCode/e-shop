@@ -1,6 +1,7 @@
 import { NgModule } from '@angular/core';
 import { CommonModule } from '@angular/common';
 import { FormsModule } from '@angular/forms';
+import { DataTableModule } from 'angular7-data-table';
 // My components:
 import { ItemCardComponent } from './item-card/item-card.component';
 import { ItemQuantityComponent } from './item-quantity/item-quantity.component';
@@ -20,7 +21,8 @@ import { OrderService } from './services/order.service';
   ],
   imports: [
     CommonModule, 
-    FormsModule
+    FormsModule,
+    DataTableModule
   ],
   providers: [
     ItemService,
@@ -33,7 +35,8 @@ import { OrderService } from './services/order.service';
   ],
   exports: [
     ItemCardComponent,
-    ItemQuantityComponent
+    ItemQuantityComponent,
+    DataTableModule
   ]
 })
 export class SharedModule { }
