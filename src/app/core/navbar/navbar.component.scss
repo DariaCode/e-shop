@@ -1,3 +1,60 @@
 .dropdown-toggle {
   cursor: pointer;
 }
+
+.logo {
+  height: 45px;
+}
+
+#navbarsExampleDefault {
+  flex-grow: unset;
+}
+
+.myNavbar {
+  background-color:white;
+}
+
+
+ul.nav a {
+  position: relative;
+  text-decoration: none;
+  font-weight: 500;
+  transition: all .35s ease;
+  text-transform: uppercase;
+
+  &::before {
+      content: "";
+      position: absolute;
+      width: 100%;
+      height: 3px;
+      bottom: 0;
+      left: 0;
+      background-color: #FFB000;
+      visibility: hidden;
+      -webkit-transform: scaleX(0);
+      transform: scaleX(0);
+      -webkit-transition: all 0.3s ease-in-out 0s;
+      transition: all 0.3s ease-in-out 0s;
+  }
+
+  &:hover {
+      color: #512715;
+      font-weight: 600;
+      &::before {
+          visibility: visible;
+          -webkit-transform: scaleX(1);
+          transform: scaleX(1);
+      }
+  }
+}
+
+.dropdown-item:hover{
+  background-color: transparent;
+}
+
+.badge {
+  font-size: inherit;
+  font-weight: 800;
+  padding: 0;
+  color: #FFB000;
+}

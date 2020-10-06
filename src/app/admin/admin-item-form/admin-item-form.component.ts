@@ -6,6 +6,13 @@ import { take } from 'rxjs/operators';
 import { ItemService } from '../../shared/services/item.service';
 import { FilterService } from '../../shared/services/filter.service';
 
+
+interface Item {
+  title: string;
+  price: string;
+  category: string;
+  imageUrl: string;
+}
 @Component({
   selector: 'app-admin-item-form',
   templateUrl: './admin-item-form.component.html',
