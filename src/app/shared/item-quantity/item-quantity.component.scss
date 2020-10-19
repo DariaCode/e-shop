@@ -1,4 +1,17 @@
 .quantity {
-  height: 37px;
-  line-height: 37px;
+  //height: 37px;
+  //line-height: 37px;
+}
+.quantity-card {
+  // max-width: 140px;
+  display: flex;
+  justify-content: space-evenly;
+  align-items: center;
+  .quantity-text{
+    min-width: 60px;
+    font-size: 90%;
+  }
+  .btn{
+    color: #512715;
+  }
 }

@@ -1,16 +1,16 @@
-<div class="row no-gutters">
+<div class="row no-gutters quantity-card">
   <div class="col-2">
     <button
-    class="btn btn-primary btn-block"
+    class="btn"
     (click)="removeFromCart()"
     > - </button>
   </div>
-  <div class="col text-center quantity">
+  <div class="col-4 quantity-text">
       {{ getQuantity() }} in cart
   </div>
   <div class="col-2">
-      <button
-      class="btn btn-primary btn-block"
+    <button
+      class="btn"
       (click)="addToCart()"
       > + </button>
   </div>

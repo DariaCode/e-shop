@@ -3,15 +3,16 @@
           [src]="item.imageUrl" alt="{{ item.title }}">
     <div class="item-card-body">
       <h5 class="item-card-title">{{ item.title }}</h5>
-      <p class="item-card-price"> {{ item.price | currency:'USD' }}</p>
+      <!--<p class="item-card-price"> {{ item.price | currency:'USD' }}</p>-->
     </div>
-    <div *ngIf="showActions" class="card-footer">
+    <div *ngIf="showActions" class="card-footer row justify-content-center align-items-center">
       <button 
         *ngIf="getQuantity() === 0; else updateQuantity"
         (click)="addToCart()" 
-        class="btn btn-primary btn-block">Add to Cart</button>
+        class="btn add-btn col-8">Add to Cart</button>
       <ng-template #updateQuantity>
         <app-item-quantity [item]="item" [shopping-cart]="shoppingCart"></app-item-quantity> 
       </ng-template>  
+      <p class="item-card-price col-4"> {{ item.price | currency:'USD' }}</p>
     </div>      
 </div>
