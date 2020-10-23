@@ -1,17 +1,42 @@
-.quantity {
-  //height: 37px;
-  //line-height: 37px;
-}
 .quantity-card {
   // max-width: 140px;
   display: flex;
-  justify-content: space-evenly;
+  justify-content: center;
   align-items: center;
+  text-align: center;
+  .myBtn {
+    display: inline-block;
+  }
   .quantity-text{
     min-width: 60px;
     font-size: 90%;
+    text-align: center;
+    padding: 6px;
+    .badge {
+      font-size: inherit;
+      font-weight: 800;
+      padding: 0;
+      color: #FFB000;
+    }
   }
   .btn{
     color: #512715;
+    cursor: pointer;
+    font-size: 130%;
+    // border-color: rgba(255, 174, 0, 0.5);
+    //background-color: rgba(255, 174, 0, 0.5);
+    text-decoration: none;
+    font-weight: 500;
+    &:hover {
+      color: black;
+      font-weight: 800;
+      text-shadow: 0px 0px 4px #FFB000;
+    }
+  }
+
+  // remove custom blue border on click;
+  .btn:focus,.btn:active {
+    outline: none !important;
+    box-shadow: none;
   }
 }

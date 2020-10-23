@@ -28,8 +28,13 @@
     }
   }
 }
+// remove custom blue border on click;
+.btn:focus,.btn:active {
+  outline: none !important;
+  box-shadow: none;
+}
 
-.add-btn {
+#add-btn {
   cursor: pointer;
   // background-color: rgba(255, 174, 0, 0.5);
   color: #512715;

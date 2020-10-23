@@ -9,7 +9,7 @@
       <button 
         *ngIf="getQuantity() === 0; else updateQuantity"
         (click)="addToCart()" 
-        class="btn add-btn col-8">Add to Cart</button>
+        class="btn col-8" id="add-btn">Add to Cart</button>
       <ng-template #updateQuantity>
         <app-item-quantity [item]="item" [shopping-cart]="shoppingCart"></app-item-quantity> 
       </ng-template>  
