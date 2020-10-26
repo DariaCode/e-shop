@@ -1,7 +1,7 @@
 <div class="sticky-top">
   <div class="list-group myList">
     <a class="list-group-item list-group-item-action"
-      routerLink="/"
+      routerLink="/products"
       [class.active]="!selectedCategory"
     >
       All Categories
@@ -9,7 +9,7 @@
     <a 
       *ngFor="let c of categoriesFilter"
       class="list-group-item list-group-item-action"
-      routerLink="/"
+      routerLink="/products"
       [queryParams]="{ category: c.key }"
       [class.active]="selectedCategory === c.key">
       {{c.payload.val().name}}

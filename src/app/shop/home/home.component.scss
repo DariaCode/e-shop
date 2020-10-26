@@ -1,0 +1,71 @@
+.homePage{
+  background: url(https://firebasestorage.googleapis.com/v0/b/e-shop-b3767.appspot.com/o/homepage.png?alt=media&token=eaed6a2f-4547-4a59-8469-135b8487b4ef);
+  height: 90vh;
+  background-position: center center;
+  background-repeat: no-repeat;
+  background-size: cover;
+  position: absolute;
+  left: 0;
+  width: 100vw;
+  .container{
+    height: 90vh;
+    display: flex;
+    //align-items: center;
+    padding-top: 12vh;
+    .text{
+      //text-align: center;
+      max-width: 25vw;
+      font-size: 130%;
+      padding: 16px 0px;
+      text-shadow: 1px 1px 1.5px white;
+    }
+    .myBtn{
+      color: #512715;
+      cursor: pointer;
+      font-size: 100%;
+      text-decoration: none;
+      font-weight: 500;
+      background-color: #FFB000;
+      box-shadow: 0px 0px 4px white;
+      &:hover {
+        color: black;
+        font-weight: 800;
+        background-color: rgba(255, 174, 0, 0.5);
+      }
+
+        
+    &::before {
+      content: "";
+      position: absolute;
+      width: 100%;
+      height: 3px;
+      bottom: 0;
+      left: 0;
+      background-color: #FFB000;
+      visibility: hidden;
+      -webkit-transform: scaleX(0);
+      transform: scaleX(0);
+      -webkit-transition: all 0.3s ease-in-out 0s;
+      transition: all 0.3s ease-in-out 0s;
+  }
+
+  &:hover {
+    color: black;
+    font-weight: 800;
+    background-color: rgba(255, 174, 0, 0.5);
+      &::before {
+          visibility: visible;
+          -webkit-transform: scaleX(1);
+          transform: scaleX(1);
+      }
+  }
+    }
+  }
+}
+
+
+// remove custom blue border on click;
+.btn:focus,.btn:active {
+  outline: none !important;
+  box-shadow: none;
+}

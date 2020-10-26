@@ -12,6 +12,7 @@ import { AppRoutingModule } from './app-routing.module';
 import { AppComponent } from './app.component';
 import { ItemsListComponent } from './shop/items-list/items-list.component';
 import { LoginButtonComponent } from './core/login-button/login-button.component';
+import { HomeComponent } from './shop/home/home.component';
 // https://ng-bootstrap.github.io/#/home
 import { NgbModule } from '@ng-bootstrap/ng-bootstrap'
 // My modules:
@@ -39,7 +40,8 @@ import { AdminModule } from './admin/admin.module';
     AdminModule,
     DataTableModule.forRoot(),
     RouterModule.forRoot([
-      { path: '', component: ItemsListComponent },
+      { path: '', component: HomeComponent },
+      { path: 'products', component: ItemsListComponent },
       { path: 'login', component: LoginButtonComponent}
     ])
   ],
