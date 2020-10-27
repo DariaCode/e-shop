@@ -5,14 +5,16 @@ import { RouterModule } from '@angular/router';
 import { NgbModule } from '@ng-bootstrap/ng-bootstrap'
 // My components.
 import { NavbarComponent } from './navbar/navbar.component';
-import { LoginButtonComponent } from './login-button/login-button.component'
+import { LoginButtonComponent } from './login-button/login-button.component';
+import { FooterComponent } from './footer/footer.component'
 
 
 @NgModule({
   // The components, directives, and pipes that belong to this NgModule.
   declarations: [
     NavbarComponent,
-    LoginButtonComponent
+    LoginButtonComponent,
+    FooterComponent
   ],
   // Other modules whose exported classes are needed by 
   // component templates declared in this NgModule.
@@ -27,6 +29,7 @@ import { LoginButtonComponent } from './login-button/login-button.component'
   // the component templates of other NgModules.
   exports: [
     NavbarComponent,
+    FooterComponent
   ]
 })
 export class CoreModule { }
