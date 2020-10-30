@@ -1,19 +1,27 @@
-<h1>Orders</h1>
+<h2>Orders</h2>
 <table class="table">
   <thead>
     <tr>
-      <th>Customer</th>
       <th>Date</th>
+      <th>Name</th>
+      <th>Address</th>
       <th></th>
+      <th>City</th>
+      <!--<th></th>-->
     </tr>
-  </thead> 
+  </thead>
   <tbody>
-  <tr *ngFor="let order of orders$ | async">
+    <tr *ngFor="let order of orders$ | async">
+      <td>{{ order.orderDate | date }}</td>
       <td>{{ order.shipping.name }}</td>
-      <td>{{ order.orderDate | date}}</td>
+      <td>{{ order.shipping.address1 }}</td>
+      <td>{{ order.shipping.address2 }}</td>
+      <td>{{ order.shipping.city }}</td>
+      <!--TODO Create a View page 
       <td>
-        <a href="">View (inactive)</a> <!-- TODO Create a View page -->
+        <a href="">View (inactive)</a>
       </td>
-    </tr> 
-  </tbody> 
+      -->
+    </tr>
+  </tbody>
 </table>
