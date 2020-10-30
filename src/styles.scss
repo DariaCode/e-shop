@@ -4,9 +4,16 @@
 @import '~bootstrap/scss/bootstrap';
 @import '~font-awesome/css/font-awesome.css';
 
-$primary-color: #c1d62e;
-$primary-color-hover: #b1c522;
+$primary-color-orange: #ffb000;
+$primary-color-brown: #512715;
 
+html{
+  height: 100%;
+}
 body {
   padding-top: 80px;
+  height: 100%;
+}
+.root{
+  min-height: 100vh;
 }
