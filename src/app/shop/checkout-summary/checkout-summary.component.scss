@@ -1,0 +1,15 @@
+.card{
+  margin-bottom: 12px;
+  border-radius: 0;
+  border-color: rgba(255, 174, 0, 0.5);
+  .card-text{
+    //color: #00000080;
+    padding: 4px 8px;
+    .badge {
+      font-size: inherit;
+      font-weight: 800;
+      padding: 0;
+      color: #FFB000;
+    }
+  }
+}

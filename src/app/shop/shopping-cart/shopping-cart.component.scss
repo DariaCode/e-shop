@@ -1,28 +1,28 @@
-.title{
+.title {
   color: #512715;
 }
 
-.sub-title{
+.sub-title {
   color: #00000080;
   display: inline-flex;
   justify-content: space-between;
   width: 100%;
   padding: 6px;
-  .counter{
+  .counter {
     padding: 4px 8px;
     .badge {
       font-size: inherit;
       font-weight: 800;
       padding: 0;
-      color: #FFB000;
+      color: #ffb000;
     }
   }
 }
 
-.table{
+.table {
   color: #512715;
   padding: 16px 2px;
-  th{
+  th {
     vertical-align: middle;
   }
   .thumbnail {
@@ -33,18 +33,19 @@
     text-align: center;
     margin: 0 auto;
   }
-  .total{
+  .total {
     padding: 0px 0px 12px 0px;
   }
 }
 
 // remove custom blue border on click;
-.btn:focus,.btn:active {
+.btn:focus,
+.btn:active {
   outline: none !important;
   box-shadow: none;
 }
 
-.myBtn{
+.myBtn {
   color: #00000080;
   cursor: pointer;
   font-size: 100%;
@@ -58,9 +59,10 @@
   }
 }
 
-#btnCheckOut{
-  background-color: rgb(255, 174, 0, 0.25);
+#btnCheckOut {
+  color: black;
+  background-color: #ffb000;
   &:hover {
-    background-color:  rgb(255, 174, 0, 0.5);
+    background-color: rgb(255, 174, 0, 0.5);
   }
 }

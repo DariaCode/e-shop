@@ -1,15 +1,19 @@
 <h1 class="title">Shopping Cart</h1>
-<div class="row col"
-*ngIf = "cartCounter > 0; else noItems">
+<div class="row col" *ngIf="cartCounter > 0; else noItems">
   <div class="sub-title">
-    <div class="counter">You have [ <div class="badge"> {{ cartCounter }} </div> ] 
-    items in your shopping cart.</div>
+    <div class="counter">
+      You have [
+      <div class="badge">{{ cartCounter }}</div>
+      ] items in your shopping cart.
+    </div>
     <div>
-    <button
-      *ngIf = "cartCounter"
-      class="btn btn-sm myBtn"
-      (click)="clearCart()"
-    > Clear Shopping Cart </button>
+      <button
+        *ngIf="cartCounter"
+        class="btn btn-sm myBtn"
+        (click)="clearCart()"
+      >
+        Clear Shopping Cart
+      </button>
     </div>
   </div>
 
@@ -24,15 +28,21 @@
     </thead>
 
     <tbody>
-      <tr *ngFor="let item of cart.items" >
+      <tr *ngFor="let item of cart.items">
         <th>
-          <div class="thumbnail" [style.backgroundImage]="'url('+ item.item.imageUrl +')'"></div>
+          <div
+            class="thumbnail"
+            [style.backgroundImage]="'url(' + item.item.imageUrl + ')'"
+          ></div>
         </th>
-        <th>{{ item.item.title }} </th>
+        <th>{{ item.item.title }}</th>
         <th>
-          <app-item-quantity [item]="item.item" [shopping-cart]="cart"></app-item-quantity>
+          <app-item-quantity
+            [item]="item.item"
+            [shopping-cart]="cart"
+          ></app-item-quantity>
         </th>
-        <th class="text-center"> {{ item.totalPrice | currency:'CAD' }} </th>
+        <th class="text-center">{{ item.totalPrice | currency: "CAD" }}</th>
       </tr>
     </tbody>
 
@@ -42,15 +52,16 @@
         <th></th>
         <th></th>
         <th class="text-center">
-            <div class="total">{{ cart.totalPrice | currency:'CAD' }}</div>
-            <a class="btn myBtn" id="btnCheckOut" [routerLink]="['/check-out']">Check Out</a>
-        </th>        
+          <div class="total">{{ cart.totalPrice | currency: "CAD" }}</div>
+          <a class="btn myBtn" id="btnCheckOut" [routerLink]="['/check-out']"
+            >Check Out</a
+          >
+        </th>
       </tr>
     </tfoot>
-
   </table>
 </div>
 
 <ng-template #noItems>
-    <div class="sub-title counter">You don't have any item in your cart</div>
+  <div class="sub-title counter">You don't have any item in your cart</div>
 </ng-template>
