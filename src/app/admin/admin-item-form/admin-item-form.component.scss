@@ -1,0 +1,66 @@
+.myForm {
+  color: #512715;
+  .input-group-text{
+    background-color: rgba(255, 174, 0, 0.25);
+    border-color:rgba(255, 174, 0, 0.5);
+  }
+
+  input, select {
+    border-color: rgba(255, 174, 0, 0.5);
+    border-radius: 0%;
+    &:hover,
+    &:active {
+      border-color: #ffb000;
+      box-shadow: 0px 0px 2px #ffb000;
+    }
+  }
+
+  .saveBtn{
+    background-color: #ffb000;
+    cursor: pointer;
+    font-size: 100%;
+    text-decoration: none;
+    font-weight: 500;
+    border: none;
+    margin-right: 12px;
+    min-width: 85px;n
+    &:hover {
+      color: black;
+      font-weight: 800;
+      background-color: rgb(255, 174, 0, 0.5);
+    }
+  }
+
+  .deleteBtn{
+    color: #00000080;
+    cursor: pointer;
+    font-size: 100%;
+    text-decoration: none;
+    font-weight: 500;
+    background-color: rgb(255, 174, 0, 0.25);
+    margin-left: 12px;
+    min-width: 85px;
+    &:hover {
+      color: black;
+      font-weight: 800;
+      background-color: rgba(255, 174, 0, 0.5);
+    }
+  }
+}
+
+.itemCard{
+  width: 70%;
+}
+
+// remove custom blue border on click;
+.btn:focus,
+.btn:active {
+  outline: none !important;
+  box-shadow: none;
+}
+
+input:focus , select:focus {
+  border-color: #160808;
+  -webkit-box-shadow: none;
+  box-shadow: none;
+}

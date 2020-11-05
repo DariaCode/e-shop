@@ -1,10 +1,18 @@
 <div class="row">
+  <!--
   <div class="col-md-6">
-    <form #f="ngForm" (ngSubmit)="save(f.value)">
-<!--
+    <form #f="ngForm" (ngSubmit)="save(f.value)" class="myForm">
       <div class="form-group">
         <label for="title">Title</label>
-        <input #title="ngModel" [(ngModel)]="item.title" name="title" id="title" type="text" class="form-control" required>
+        <input
+          #title="ngModel"
+          [(ngModel)]="item.title"
+          name="title"
+          id="title"
+          type="text"
+          class="form-control"
+          required
+        />
         <div class="alert alert-danger" *ngIf="title.touched && title.invalid">
           Title is required.
         </div>
@@ -14,7 +22,16 @@
         <label for="price">Price</label>
         <div class="input-group">
           <span class="input-group-text">$</span>
-          <input #price="ngModel" [(ngModel)]="item.price" name="price" id="price" type="number" class="form-control" required [min]="0.1">
+          <input
+            #price="ngModel"
+            [(ngModel)]="item.price"
+            name="price"
+            id="price"
+            type="number"
+            class="form-control"
+            required
+            [min]="0.1"
+          />
         </div>
         <div class="alert alert-danger" *ngIf="price.touched && price.invalid">
           <div *ngIf="price.errors.required">Price is required.</div>
@@ -24,35 +41,57 @@
 
       <div class="form-group">
         <label for="category">Category</label>
-        <select #category="ngModel" [(ngModel)]="item.category" name="category" id="category" class="form-control" required>
+        <select
+          #category="ngModel"
+          [(ngModel)]="item.category"
+          name="category"
+          id="category"
+          class="form-control"
+          required
+        >
           <option value=""></option>
           <option *ngFor="let c of categories$ | async" [value]="c.key">
             {{ c.payload.val().name }}
           </option>
         </select>
-        <div class="alert alert-danger" *ngIf="category.touched && category.invalid">
+        <div
+          class="alert alert-danger"
+          *ngIf="category.touched && category.invalid"
+        >
           Category is required.
         </div>
       </div>
 
       <div class="form-group">
         <label for="imageUrl">Image URL</label>
-        <input #imageUrl="ngModel" [(ngModel)]="item.imageUrl" name="imageUrl" id="imageUrl" type="text" class="form-control" required url>
-        <div class="alert alert-danger" *ngIf="imageUrl.touched && imageUrl.invalid">
+        <input
+          #imageUrl="ngModel"
+          [(ngModel)]="item.imageUrl"
+          name="imageUrl"
+          id="imageUrl"
+          type="text"
+          class="form-control"
+          required
+          url
+        />
+        <div
+          class="alert alert-danger"
+          *ngIf="imageUrl.touched && imageUrl.invalid"
+        >
           <div *ngIf="imageUrl.errors.required">Image URL is required.</div>
           <div *ngIf="imageUrl.errors.url">Image URL must be a valid URL.</div>
         </div>
       </div>
-      <button class="btn btn-primary">Save</button>
-      <button type="button" (click)="delete()" class="btn btn-danger">Delete</button>
-    -->
+      <button class="btn saveBtn">Save</button>
+      <button type="button" (click)="delete()" class="btn deleteBtn">
+        Delete
+      </button>
     </form>
   </div>
-
-  <div class="col-md-6">
-    <app-item-card
-    [item]="item" 
-    [show-actions]="false">
-      </app-item-card>
+-->
+  <div class="col-md-6 d-flex justify-content-center">
+    <div class="itemCard">
+      <app-item-card [item]="item" [show-actions]="false"> </app-item-card>
+    </div>
   </div>
 </div>
