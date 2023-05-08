@@ -18,7 +18,7 @@ export class ItemService {
   constructor(private firebase: AngularFireDatabase) { }
 
   // Methods:
-  getAll() { // TODO find a source with explanation
+  getAll() { 
     return this.firebase.list('items').snapshotChanges()
     .pipe(map(action => action
       .map(a => ({key: a.payload.key, ...(a.payload.val() as Item)})

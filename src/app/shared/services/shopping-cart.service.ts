@@ -19,13 +19,12 @@ export class ShoppingCartService {
   // Methods:
   async getCart(): Promise<Observable<ShoppingCart>> {
     const cartId = await this.getOrCreateCartId();
-    
     return this.firebase.object('/shopping-carts/' + cartId).snapshotChanges()
     .pipe(map(cart => {
-      console.log("shopping-cart.service: ", new ShoppingCart(cart.payload.exportVal().items));
       return new ShoppingCart(cart.payload.exportVal().items)
     }));
   }
+
   // Function for getCart(), updateItem(), clearCart().
   private async getOrCreateCartId() {
     const cartId = localStorage.getItem('cartId');
@@ -35,6 +34,7 @@ export class ShoppingCartService {
     localStorage.setItem('cartId', result.key);
     return result.key;
   }
+
   // Function for getCart().
   private create() {
     return this.firebase.list('/shopping-carts').push({
@@ -80,7 +80,6 @@ export class ShoppingCartService {
   }
   // Function for updateItem().
   private getItem(cartId: string, itemId: string) {
-
     return this.firebase.object('/shopping-carts/' + cartId + '/items/' + itemId);
   }
 
