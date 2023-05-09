@@ -23,7 +23,6 @@ export class ItemCardComponent {
   constructor(private shoppingCartService: ShoppingCartService) { }
 
   addToCart() {
-    console.log("item-card.component addToCard(): ", this.item, this.showActions, this.shoppingCart);
     this.shoppingCartService.addToCart(this.item);
   }
 
