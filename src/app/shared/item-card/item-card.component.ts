@@ -11,7 +11,7 @@ import { ShoppingCartService } from '../services/shopping-cart.service';
   templateUrl: './item-card.component.html',
   styleUrls: ['./item-card.component.scss']
 })
-// TODO find how to defind components 
+
 export class ItemCardComponent {
   // Decorator that marks a class field as an input property 
   // and supplies configuration metadata.
@@ -22,12 +22,11 @@ export class ItemCardComponent {
 
   constructor(private shoppingCartService: ShoppingCartService) { }
 
-
   addToCart() {
     console.log("item-card.component addToCard(): ", this.item, this.showActions, this.shoppingCart);
     this.shoppingCartService.addToCart(this.item);
   }
- // TODO check if need it here
+
   getQuantity() {
     if (!this.shoppingCart) { return 0; }
     const cartItem = this.shoppingCart.itemsMap[this.item.key];
