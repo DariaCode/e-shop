@@ -11,12 +11,11 @@ import { ShoppingCartService } from '../services/shopping-cart.service';
 export class ItemQuantityComponent {
 
   @Input('item') item: Item;
-  @Input('shopping-cart') shoppingCart; 
+  @Input('shopping-cart') shoppingCart: ShoppingCart; 
 
   constructor(private cartService: ShoppingCartService) { }
 
   addToCart() {
-    console.log("itemQuantity component: ",this.item, this.shoppingCart)
     this.cartService.addToCart(this.item);
   }
 
