@@ -55,7 +55,6 @@ describe('ItemCardComponent', () => {
 
   it('should not show add to cart button if item already in cart', () => {
     const addToCartButton: HTMLButtonElement = fixture.nativeElement.querySelector('.btn');
-    console.log("🚀 ~ file: item-card.component.spec.ts:59 ~ it ~ addToCartButton:", addToCartButton)
     
     expect(addToCartButton).toBeFalsy();
   });
