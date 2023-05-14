@@ -5,7 +5,6 @@ import { FooterComponent } from './footer.component';
 describe('FooterComponent', () => {
   let component: FooterComponent;
   let fixture: ComponentFixture<FooterComponent>;
-  let linkElement: HTMLElement;
 
   beforeEach(async () => {
     await TestBed.configureTestingModule({
