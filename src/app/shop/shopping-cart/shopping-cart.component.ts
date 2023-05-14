@@ -1,7 +1,5 @@
 import { Component, OnInit } from '@angular/core';
-import { Item } from '../../shared/models/item';
 import { ShoppingCart } from '../../shared/models/shopping-cart';
-import { ShoppingCartItem } from '../../shared/models/shopping-cart-item';
 import { ShoppingCartService } from '../../shared/services/shopping-cart.service';
 
 @Component({
@@ -18,11 +16,9 @@ export class ShoppingCartComponent implements OnInit {
 
   async ngOnInit() {
     const cartItems = await this.shoppingCartService.getCart();
-    cartItems.subscribe( temp => {
-      // const data: any[] = temp.items;
-      this.cart = temp;
+    cartItems.subscribe( item => {
+      this.cart = item;
       this.cartCounter = this.cart.totalItemsCount;
-      console.log("shopping cart component: ", this.cart,this.cartCounter);
     });
   }
 

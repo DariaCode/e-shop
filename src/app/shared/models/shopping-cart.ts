@@ -12,7 +12,7 @@ export class ShoppingCart {
     for (let itemId in itemsMap) {
       let cartItem = itemsMap[itemId];
       this.items.push(new ShoppingCartItem(cartItem.item, cartItem.quantity));
-      console.log("shopping-cart-models items: ", this.items);
+      // console.log("shopping-cart-models items: ", this.items);
     }
   }
   // Methods:
@@ -32,11 +32,5 @@ export class ShoppingCart {
     }
     return total;
   }
-  /*
-  getQuantity(item: Item) {
-    let itemQ = this.itemsMap[item.key];
-    // console.log("shopping-cart.ts getQty: ", this.itemsMap[item.key], itemQ)
-    return itemQ ? itemQ.quantity : 0; 
-  }
-  */
+
 }

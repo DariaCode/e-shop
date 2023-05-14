@@ -42,7 +42,7 @@
             [shopping-cart]="cart"
           ></app-item-quantity>
         </th>
-        <th class="text-center">{{ item.totalPrice | currency: "CAD" }}</th>
+        <th class="text-center">{{ item.totalPrice | currency: 'USD' }}</th>
       </tr>
     </tbody>
 
@@ -52,7 +52,7 @@
         <th></th>
         <th></th>
         <th class="text-center">
-          <div class="total">{{ cart.totalPrice | currency: "CAD" }}</div>
+          <div class="total">{{ cart.totalPrice | currency: 'USD' }}</div>
           <a class="btn myBtn" id="btnCheckOut" [routerLink]="['/check-out']"
             >Check Out</a
           >
