@@ -1,4 +1,5 @@
 import { ShoppingCart } from './shopping-cart';
+import { Shipping } from './shipping';
 
 export class Order {
   // https://www.typescriptlang.org/docs/handbook/classes.html
@@ -8,10 +9,10 @@ export class Order {
 
   constructor(
     public userId: string, 
-    public shipping: any, 
+    public shipping: Shipping, 
     shopCart: ShoppingCart) {
 
-      this. orderDate = new Date().getTime(); // TODO check why getTime???
+      this. orderDate = new Date().getTime();
 
       this.item = shopCart.items.map(i => {
         return {

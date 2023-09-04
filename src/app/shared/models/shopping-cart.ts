@@ -1,5 +1,4 @@
 import { ShoppingCartItem } from './shopping-cart-item';
-import { Item } from './item';
 
 export class ShoppingCart {
   // https://www.typescriptlang.org/docs/handbook/classes.html

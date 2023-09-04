@@ -6,13 +6,7 @@ import { OrderService } from '../../shared/services/order.service';
 
 import { ShoppingCart } from '../../shared/models/shopping-cart';
 import { Order } from '../../shared/models/order';
-
-interface Shipping {
-  name: string;
-  address1: string;
-  address2: string;
-  city: string;
-}
+import { Shipping } from '../../shared/models/shipping';
 
 @Component({
   selector: 'app-checkout-form',
@@ -27,7 +21,7 @@ export class CheckoutFormComponent implements OnInit, OnDestroy {
   userId;
 
   constructor(
-    private router: Router,
+    public router: Router,
     private authService: AuthService,
     private orderService: OrderService
   ) { }
@@ -35,7 +29,6 @@ export class CheckoutFormComponent implements OnInit, OnDestroy {
   async addOrder() {
     let order = new Order(this.userId, this.shipping, this.shoppingCart);
     const result = await this.orderService.addOrder(order);
-    console.log("checkout-form addOrder ", result.key, result)
     this.router.navigate(['/check-out-success', result.key]);
   }
 

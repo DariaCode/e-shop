@@ -22,4 +22,14 @@ describe('CheckoutSuccessComponent', () => {
   it('should create', () => {
     expect(component).toBeTruthy();
   });
+
+  it('should display the correct text', () => {
+    expect(fixture.nativeElement.querySelector('h1').textContent).toEqual('Thank you!');
+    expect(fixture.nativeElement.querySelector('h5').textContent).toEqual('Your order was successfully submitted.');
+  });
+
+  it('should have the correct buttons', () => {
+    expect(fixture.nativeElement.querySelector('.showOrderBtn')).toBeTruthy();
+    expect(fixture.nativeElement.querySelector('.orderMoreBtn')).toBeTruthy();
+  });
 });

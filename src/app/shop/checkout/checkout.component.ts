@@ -1,6 +1,4 @@
 import { Component, OnInit, OnDestroy } from '@angular/core';
-// https://rxjs-dev.firebaseapp.com/api/index/class/Subscription
-import { Observable } from 'rxjs';
 import { Subscription } from 'rxjs';
 import { ShoppingCart } from '../../shared/models/shopping-cart';
 import { ShoppingCartService } from '../../shared/services/shopping-cart.service';
@@ -13,7 +11,7 @@ import { ShoppingCartService } from '../../shared/services/shopping-cart.service
 })
 export class CheckoutComponent implements OnInit, OnDestroy {
 
-  cart;
+  cart: ShoppingCart;
   cartSubscription: Subscription;
 
   constructor(private shoppingCartService: ShoppingCartService) { }
@@ -22,7 +20,6 @@ export class CheckoutComponent implements OnInit, OnDestroy {
     const cart$ = await this.shoppingCartService.getCart();
     this.cartSubscription = cart$.subscribe(cart => {
       this.cart = cart;
-      console.log("checkout",this.cart);
     }) 
   }
 
