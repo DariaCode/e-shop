@@ -20,7 +20,6 @@ export class CheckoutComponent implements OnInit, OnDestroy {
     const cart$ = await this.shoppingCartService.getCart();
     this.cartSubscription = cart$.subscribe(cart => {
       this.cart = cart;
-      console.log("checkout",this.cart);
     }) 
   }
 
