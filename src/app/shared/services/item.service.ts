@@ -1,5 +1,5 @@
 import { Injectable } from '@angular/core';
-import { AngularFireDatabase } from '@angular/fire/database';
+import { AngularFireDatabase } from '@angular/fire/compat/database';
 // https://rxjs-dev.firebaseapp.com/api/operators/map
 import { map } from 'rxjs/operators';
 import { Item } from '../models/item';

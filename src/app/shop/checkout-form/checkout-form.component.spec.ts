@@ -8,7 +8,7 @@ import { AuthService } from '../../shared/services/auth.service';
 import { OrderService } from '../../shared/services/order.service';
 import { ShoppingCart } from '../../shared/models/shopping-cart';
 import { Shipping } from '../../shared/models/shipping';
-import { User } from 'firebase';
+import { User } from 'firebase/compat';
 
 describe('CheckoutFormComponent', () => {
   let component: CheckoutFormComponent;

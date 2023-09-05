@@ -1,6 +1,6 @@
 import { TestBed } from '@angular/core/testing';
 import { FilterService } from './filter.service';
-import { AngularFireDatabase } from '@angular/fire/database';
+import { AngularFireDatabase } from '@angular/fire/compat/database';
 import { of } from 'rxjs';
 
 class FirebaseMock {

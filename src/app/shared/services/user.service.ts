@@ -1,6 +1,6 @@
 import { Injectable } from '@angular/core';
-import { AngularFireDatabase, AngularFireObject } from '@angular/fire/database';
-import * as firebase from 'firebase';
+import { AngularFireDatabase, AngularFireObject } from '@angular/fire/compat/database';
+import * as firebase from 'firebase/compat';
 import { AppUser } from '../models/user';
 
 @Injectable({
